@@ -1,2 +1,2 @@
 
-A link shortener
+This is a link shortener
