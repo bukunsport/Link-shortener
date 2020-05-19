@@ -1,6 +1,5 @@
 const express=require('express');
 const bp=require('body-parser');
-const env=require('./load-env');
 const linkRoute=require('./controllers/link')
 
 const app=express();
@@ -12,7 +11,7 @@ app.use(express.static('./assets'))
 
 app.get('/',linkRoute.gethome);
 app.post('/link',linkRoute.createlink);
-app.get('/:id',linkRoute.getlink)
+app.get('/:id',linkRoute.getlink);
 
 app.listen(8000,()=>{console.log('connected')})
 

@@ -1,11 +1,22 @@
 const rs = require("randomstring");
 const connect=require('../connection');
 const env=require('../load-env');
+
 exports.createlink=(req,res)=>{
     var re='"'+rs.generate(7)+'"';//random link generated
     var originallink='"'+req.body.link+'"';//original link inputted
     //query to check if the original link exists
-    if(originallink.length>5){
+    var ol=req.body.link;
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i');
+    
+    var pat=pattern.test(ol);
+
+    if((originallink.length>5) && (pat==true)){
         var checklong='select originallink from links where originallink='+originallink;
         connect.query(checklong,(error,result)=>{
             if(error){
