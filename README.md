@@ -7,6 +7,8 @@ A link shortener made with Node JS.
 - [x] Unique short links.
 - [x] Easily copy Short links.
 
+# Screenshots
+<img src="link2~2.JPG" width="300px"> <img src="link~2.JPG" width="300px"> 
 
 
 # 🔌Requirements
