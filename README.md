@@ -1,10 +1,12 @@
 # Link Shortener
 A link shortener made with Node JS.
 
+
 ## ✨ Features
 - [x] Shorten links.
 - [x] Unique short links.
 - [x] Easily copy Short links.
+
 
 
 # 🔌Requirements
